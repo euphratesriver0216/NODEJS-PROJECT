@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DAITZO</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/common.js"></script>
+
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="../icon/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="../icon/favicon-152.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="16x16" href="../icon/favicon-16.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="32x32" href="../icon/favicon-32.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="48x48" href="../icon/favicon-48.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="64x64" href="../icon/favicon-64.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="128x128" href="../icon/favicon-128.png" />
+
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            margin-top: 52px;
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+    <div class="container" style="padding-top: 10px;">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <!-- 오른쪽 메뉴바 -->
+                    <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+                    <a href="/" class="navbar-brand">DAITZO</a>
+
+                    <a href="/" class="navbar-brand">
+                        <div class="dropdown">상품
+                            <div class="dropbtn" style="color: transparent; background-color: transparent;"></div>
+                            <div class="dropdown-content">
+                                <a href="/food">남성</a>
+                                <a href="/device">여성</a>
+                                <a href="/cloth">악세사리</a>
+                            </div>
+                        </div>
+
+                    </a>
+
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                    <ul class="nav navbar-nav">
+                        <% if(typeof(userData)!=='undefined' && userData.username==='admin' ){%>
+                            <li><a href="/admin/products">ADMIN</a></li>
+                            <%}%>
+                                <% if(isLogin){%>
+                                    <li><a href="/chat">문의</a></li>
+                                    <%}%>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/cart">장바구니</a></li>
+
+                        <% if(isLogin){%>
+                            <li><a href="/accounts/logout" onclick="return confirm('로그아웃 하시겠습니까?')">로그아웃</a></li>
+                            <%}else{%>
+                                <li><a href="/accounts/join">회원가입</a></li>
+                                <li><a href="/accounts/login">로그인</a></li>
+                                <%}%>
+                                    <li><a href="/checkout/nomember">구매조회</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+</body>
+
+
+</html>
